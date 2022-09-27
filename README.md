@@ -1,6 +1,6 @@
 # reloc-rebuilder
 
-`reloc-rebuilder` is a tool for rebuilding or constructing relocation data from differently-based dumps of a Windows x86/x64 binary. Inspired by [ReloX by MackT/uCF2000](http://web.archive.org/web/20091030072027/http://www.woodmann.com/collaborative/tools/index.php/ReloX).
+`reloc-rebuilder` is a tool for rebuilding or constructing [relocation data](https://learn.microsoft.com/en-us/windows/win32/debug/pe-format#the-reloc-section-image-only) from differently-based dumps of a Windows x86/x64 executable. Inspired by [ReloX](http://web.archive.org/web/20091030072027/http://www.woodmann.com/collaborative/tools/index.php/ReloX).
 
 ## Usage
 
