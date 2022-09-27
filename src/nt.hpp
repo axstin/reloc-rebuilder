@@ -14,63 +14,63 @@ namespace pe
 
     using rva_t = uint32_t;
 
-	struct dos_header
-	{
-		uint16_t e_magic = dos_signature;   // Magic number
-		uint16_t e_cblp = 0x90;             // Bytes on last page of file
-		uint16_t e_cp = 3;                  // Pages in file
-		uint16_t e_crlc = 0;                // Relocations
-		uint16_t e_cparhdr = 4;             // Size of header in paragraphs
-		uint16_t e_minalloc = 0;            // Minimum extra paragraphs needed
-		uint16_t e_maxalloc = 0xFFFF;       // Maximum extra paragraphs needed
-		uint16_t e_ss = 0;                  // Initial (relative) SS value
-		uint16_t e_sp = 0xB8;               // Initial SP value
-		uint16_t e_csum = 0;                // Checksum
-		uint16_t e_ip = 0;                  // Initial IP value
-		uint16_t e_cs = 0;                  // Initial (relative) CS value
-		uint16_t e_lfarlc = 0x40;           // File address of relocation table
-		uint16_t e_ovno = 0;                // Overlay number
+    struct dos_header
+    {
+        uint16_t e_magic = dos_signature;   // Magic number
+        uint16_t e_cblp = 0x90;             // Bytes on last page of file
+        uint16_t e_cp = 3;                  // Pages in file
+        uint16_t e_crlc = 0;                // Relocations
+        uint16_t e_cparhdr = 4;             // Size of header in paragraphs
+        uint16_t e_minalloc = 0;            // Minimum extra paragraphs needed
+        uint16_t e_maxalloc = 0xFFFF;       // Maximum extra paragraphs needed
+        uint16_t e_ss = 0;                  // Initial (relative) SS value
+        uint16_t e_sp = 0xB8;               // Initial SP value
+        uint16_t e_csum = 0;                // Checksum
+        uint16_t e_ip = 0;                  // Initial IP value
+        uint16_t e_cs = 0;                  // Initial (relative) CS value
+        uint16_t e_lfarlc = 0x40;           // File address of relocation table
+        uint16_t e_ovno = 0;                // Overlay number
         uint16_t e_res[4] = { 0 };          // Reserved words
-		uint16_t e_oemid = 0;		    	// OEM identifier (for e_oeminfo)
-		uint16_t e_oeminfo = 0;             // OEM information; e_oemid specific
+        uint16_t e_oemid = 0;		    	// OEM identifier (for e_oeminfo)
+        uint16_t e_oeminfo = 0;             // OEM information; e_oemid specific
         uint16_t e_res2[10] = { 0 };        // Reserved words
-		uint32_t e_lfanew = 0x80;		    // File address of new exe header
-	};
+        uint32_t e_lfanew = 0x80;		    // File address of new exe header
+    };
 
-	enum class machine_type : uint16_t
-	{
-		UNKNOWN = 0,
-		I386 = 0x014c,  // Intel 386.
-		R3000 = 0x0162,  // MIPS little-endian, 0x160 big-endian
-		R4000 = 0x0166,  // MIPS little-endian
-		R10000 = 0x0168,  // MIPS little-endian
-		WCEMIPSV2 = 0x0169,  // MIPS little-endian WCE v2
-		ALPHA = 0x0184,  // Alpha_AXP
-		SH3 = 0x01a2,  // SH3 little-endian
-		SH3DSP = 0x01a3,
-		SH3E = 0x01a4,  // SH3E little-endian
-		SH4 = 0x01a6,  // SH4 little-endian
-		SH5 = 0x01a8,  // SH5
-		ARM = 0x01c0,  // ARM Little-Endian
-		THUMB = 0x01c2,  // ARM Thumb/Thumb-2 Little-Endian
-		ARMNT = 0x01c4,  // ARM Thumb-2 Little-Endian
-		AM33 = 0x01d3,
-		POWERPC = 0x01f0,  // IBM PowerPC Little-Endian
-		POWERPCFP = 0x01f1,
-		IA64 = 0x0200,  // Intel 64
-		MIPS16 = 0x0266,  // MIPS
-		ALPHA64 = 0x0284,  // ALPHA64
-		MIPSFPU = 0x0366,  // MIPS
-		MIPSFPU16 = 0x0466,  // MIPS
-		AXP64 = 0x0284,
-		TRICORE = 0x0520,  // Infineon
-		CEF = 0x0CEF,
-		EBC = 0x0EBC,  // EFI Byte Code
-		AMD64 = 0x8664,  // AMD64 (K8)
-		M32R = 0x9041,  // M32R little-endian
-		ARM64 = 0xAA64,  // ARM64 Little-Endian
-		CEE = 0xC0EE
-	};
+    enum class machine_type : uint16_t
+    {
+        UNKNOWN = 0,
+        I386 = 0x014c,  // Intel 386.
+        R3000 = 0x0162,  // MIPS little-endian, 0x160 big-endian
+        R4000 = 0x0166,  // MIPS little-endian
+        R10000 = 0x0168,  // MIPS little-endian
+        WCEMIPSV2 = 0x0169,  // MIPS little-endian WCE v2
+        ALPHA = 0x0184,  // Alpha_AXP
+        SH3 = 0x01a2,  // SH3 little-endian
+        SH3DSP = 0x01a3,
+        SH3E = 0x01a4,  // SH3E little-endian
+        SH4 = 0x01a6,  // SH4 little-endian
+        SH5 = 0x01a8,  // SH5
+        ARM = 0x01c0,  // ARM Little-Endian
+        THUMB = 0x01c2,  // ARM Thumb/Thumb-2 Little-Endian
+        ARMNT = 0x01c4,  // ARM Thumb-2 Little-Endian
+        AM33 = 0x01d3,
+        POWERPC = 0x01f0,  // IBM PowerPC Little-Endian
+        POWERPCFP = 0x01f1,
+        IA64 = 0x0200,  // Intel 64
+        MIPS16 = 0x0266,  // MIPS
+        ALPHA64 = 0x0284,  // ALPHA64
+        MIPSFPU = 0x0366,  // MIPS
+        MIPSFPU16 = 0x0466,  // MIPS
+        AXP64 = 0x0284,
+        TRICORE = 0x0520,  // Infineon
+        CEF = 0x0CEF,
+        EBC = 0x0EBC,  // EFI Byte Code
+        AMD64 = 0x8664,  // AMD64 (K8)
+        M32R = 0x9041,  // M32R little-endian
+        ARM64 = 0xAA64,  // ARM64 Little-Endian
+        CEE = 0xC0EE
+    };
 
     namespace characteristics
     {
@@ -143,10 +143,10 @@ namespace pe
     };
 
     struct data_directory
-	{
+    {
         uint32_t virtual_address = 0;
         uint32_t size = 0;
-	};
+    };
 
     namespace image_section_flags
     {
@@ -302,16 +302,16 @@ namespace pe
         {}
     };
 
-	struct file_header
-	{
-	    machine_type machine = machine_type::UNKNOWN;
-	    uint16_t number_of_sections = 0;
-	    uint32_t time_date_stamp = 0;
-	    uint32_t pointer_to_symbol_table = 0;
-	    uint32_t number_of_symbols = 0;
+    struct file_header
+    {
+        machine_type machine = machine_type::UNKNOWN;
+        uint16_t number_of_sections = 0;
+        uint32_t time_date_stamp = 0;
+        uint32_t pointer_to_symbol_table = 0;
+        uint32_t number_of_symbols = 0;
         uint16_t size_of_optional_header = 0;
         uint16_t characteristics = 0;
-	};
+    };
 
     struct image_file_header {
         uint32_t signature = image_signature;
